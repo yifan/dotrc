@@ -20,6 +20,8 @@ set expandtab
 set autoindent
 set smartindent
 
+set autochdir
+
 filetype on
 
 set ignorecase
@@ -54,9 +56,9 @@ set cursorcolumn
 
 
 nnoremap <silent> <F8> :TlistToggle<CR>
-let Tlist_Exit_OnlyWindow = 1     " exit if taglist is last window open
-let Tlist_Show_One_File = 1       " Only show tags for current buffer
-let Tlist_Enable_Fold_Column = 0  " no fold column (only showing one file)
+let Tlist_Exit_OnlyWindow = 1
+let Tlist_Show_One_File = 1
+let Tlist_Enable_Fold_Column = 0
 let tlist_sql_settings = 'sql;P:package;t:table'
 let tlist_ant_settings = 'ant;p:Project;r:Property;t:Target'
 
