@@ -1,6 +1,10 @@
 set nocompatible
 filetype off
 
+if exists('$TMUX')
+  set term=screen-256color
+endif
+
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
