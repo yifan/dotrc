@@ -31,7 +31,8 @@ endif
 
 set t_Co=256
 syntax enable
-colorscheme desert
+colorscheme distinguished
+set background=dark
 set spell
 set number
 
