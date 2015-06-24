@@ -1,0 +1,46 @@
+[user]
+  name = Yifan Zhang
+  email = freqyifan@gmail.com
+  j
+[core]
+  editor = vim
+  whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+  excludesfile = ~/.gitignore
+
+[color]
+  ui = true
+
+[color "branch"]
+  current = yellow reverse
+  local = yello
+  remote = green
+
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = red
+
+[diff]
+  tool = vimdiff
+
+[url "https://github.com"]
+  insteadOf = gh:
+
+[url "https://bitbucket.org/"]
+    insteadOf = bb:
+
+[credential]
+  helper = osxkeychain
+
+[alias]
+  ci = commit
+  co = checkout
+  uu = pull --rebase upstream master
+  subup = submodule update --init
+  ll = log --oneline --decorate=full --date=relative --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'

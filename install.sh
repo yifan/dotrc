@@ -5,3 +5,4 @@ then
 fi
 curl -O https://github.com/mbadolato/iTerm2-Color-Schemes/raw/master/schemes/Cobalt2.itermcolors
 ln -s ~/dotrc/vimrc ~/.vimrc
+ln -s ~/dotrc/gitconfig ~/.gitconfig
