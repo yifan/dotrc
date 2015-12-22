@@ -1,0 +1,81 @@
+config defaultToCurrentScreen true
+# Shows app icons and background apps, spreads icons in the same place.
+config windowHintsShowIcons true
+config windowHintsIgnoreHiddenWindows false
+config windowHintsSpread true
+
+bind e:cmd hint ASDFGHJKLQWERTYUIOPCVBN # use whatever keys you want
+
+alias mon-laptop    0    # variable for my laptop monitor
+alias mon-hp        1    # my external HP monitor
+
+# Window Position Regions
+alias hp-full        move screenOriginX;screenOriginY screenSizeX;screenSizeY         ${mon-hp}
+alias hp-left        move screenOriginX;screenOriginY screenSizeX/2;screenSizeY         ${mon-hp}
+alias hp-right       move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY         ${mon-hp}
+alias laptop-full        move screenOriginX;screenOriginY screenSizeX;screenSizeY         ${mon-laptop}
+alias laptop-left        move screenOriginX;screenOriginY screenSizeX/2;screenSizeY         ${mon-laptop}
+alias laptop-right       move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY         ${mon-laptop}
+alias laptop-righttop    move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY/2       ${mon-laptop}
+alias laptop-rightbottom move screenOriginX+screenSizeX/2;screenOriginY+screenSizeY/2    screenSizeX/2;screenSizeY/2       ${mon-laptop}
+
+alias full move screenOriginX;screenOriginY screenSizeX;screenSizeY
+alias lefthalf move screenOriginX;screenOriginY screenSizeX/2;screenSizeY
+alias righthalf move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
+alias tophalf move screenOriginX;screenOriginY screenSizeX;screenSizeY/2
+alias bottomhalf move screenOriginX;screenOriginY+screenSizeY/2 screenSizeX;screenSizeY/2
+
+alias topleft corner top-left resize:screenSizeX/2;screenSizeY/2
+alias topright corner top-right resize:screenSizeX/2;screenSizeY/2
+alias bottomleft corner bottom-left resize:screenSizeX/2;screenSizeY/2
+alias bottomright corner bottom-right resize:screenSizeX/2;screenSizeY/2
+
+# Window layouts for when I have 2 monitors
+layout 2monitor 'Google Chrome':REPEAT ${hp-left}
+layout 2monitor 'Safari':REPEAT ${hp-left}
+layout 2monitor 'iTerm':REPEAT ${hp-left}
+layout 2monitor 'MacVim':REPEAT ${hp-right}
+layout 2monitor 'Atom':REPEAT ${hp-right}
+layout 2monitor 'Evernote':REPEAT ${laptop-full}
+layout 2monitor 'Slack':REPEAT ${laptop-full}
+layout 2monitor '邮件':REPEAT ${laptop-full}
+layout 2monitor 'QQ音乐':REPEAT ${laptop-full}
+
+# Single monitor window layouts
+layout 1monitor 'Google Chrome':REPEAT ${laptop-full}
+layout 1monitor 'Safari':REPEAT ${laptop-full}
+layout 1monitor 'iTerm':REPEAT ${laptop-full}
+layout 1monitor 'Spotify':REPEAT ${laptop-full}
+layout 1monitor 'Evernote':REPEAT ${laptop-full}
+layout 1monitor '邮件':REPEAT ${laptop-full}
+layout 1monitor 'QQ音乐':REPEAT ${laptop-full}
+layout 1monitor 'Slack':REPEAT ${laptop-full}
+
+# Keyboard shortcuts for each layout
+bind l:ctrl;alt;cmd layout 2monitor
+bind g:ctrl;alt;cmd grid padding:5 0:2,1 1:2,2
+bind [:ctrl;alt;cmd snapshot 'slate-snapshot' save-to-disk
+bind ]:ctrl;alt;cmd activate-snapshot 'slate-snapshot'
+bind up:ctrl;alt;cmd ${full}
+bind left:ctrl;alt;cmd ${lefthalf}
+bind right:ctrl;alt;cmd ${righthalf}
+bind 1:ctrl;alt;cmd ${topleft} 
+bind 2:ctrl;alt;cmd ${topright} 
+bind 3:ctrl;alt;cmd ${bottomleft} 
+bind 4:ctrl;alt;cmd ${bottomright} 
+
+# Auto-detect when a monitor is plugged in or out
+default 2monitor count:2
+default 1monitor count:1
+
+# ======================================
+# The HYPER key
+# ======================================
+
+alias hyper ctrl;shift;alt;cmd
+
+# Focus Bindings
+bind right:${hyper}    focus right
+bind left:${hyper}     focus left
+bind up:${hyper}       focus up
+bind down:${hyper}     focus down
