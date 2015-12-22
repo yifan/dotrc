@@ -19,6 +19,7 @@ alias laptop-right       move screenOriginX+screenSizeX/2;screenOriginY screenSi
 alias laptop-righttop    move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY/2       ${mon-laptop}
 alias laptop-rightbottom move screenOriginX+screenSizeX/2;screenOriginY+screenSizeY/2    screenSizeX/2;screenSizeY/2       ${mon-laptop}
 
+alias bigCenter move screenOriginX+screenSizeX/12;screenOriginY+screenSizeY/12 10*screenSizeX/12;10*screenSizeY/12
 alias full move screenOriginX;screenOriginY screenSizeX;screenSizeY
 alias lefthalf move screenOriginX;screenOriginY screenSizeX/2;screenSizeY
 alias righthalf move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
@@ -52,10 +53,9 @@ layout 1monitor 'QQ音乐':REPEAT ${laptop-full}
 layout 1monitor 'Slack':REPEAT ${laptop-full}
 
 # Keyboard shortcuts for each layout
-bind i:ctrl;alt;cmd layout 2monitor
-bind k:ctrl;alt;cmd grid padding:5 0:2,1 1:2,2
 bind [:ctrl;alt;cmd snapshot 'slate-snapshot' save-to-disk
 bind ]:ctrl;alt;cmd activate-snapshot 'slate-snapshot'
+bind up:ctrl;alt;cmd ${bigCenter}
 bind left:ctrl;alt;cmd ${lefthalf}
 bind right:ctrl;alt;cmd ${righthalf}
 bind 1:ctrl;alt;cmd ${topleft} 
@@ -63,7 +63,7 @@ bind 2:ctrl;alt;cmd ${topright}
 bind 3:ctrl;alt;cmd ${bottomleft} 
 bind 4:ctrl;alt;cmd ${bottomright} 
 
-bind up:ctrl;alt;cmd hide 'Google Chrome'
+bind i:ctrl;alt;cmd hide 'Google Chrome'
 bind j:ctrl;alt;cmd sequence focus 'Google Chrome' | ${lefthalf}
 bind l:ctrl;alt;cmd sequence focus 'Google Chrome' | ${righthalf}
 
