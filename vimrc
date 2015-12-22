@@ -39,6 +39,7 @@ colorscheme distinguished
 set background=dark
 set spell
 set number
+set guifont=Source\ Code\ Pro\ Light:h14
 
 set laststatus=2
 set statusline=%<%f\    " Filename
