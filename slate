@@ -56,7 +56,6 @@ bind i:ctrl;alt;cmd layout 2monitor
 bind k:ctrl;alt;cmd grid padding:5 0:2,1 1:2,2
 bind [:ctrl;alt;cmd snapshot 'slate-snapshot' save-to-disk
 bind ]:ctrl;alt;cmd activate-snapshot 'slate-snapshot'
-bind up:ctrl;alt;cmd ${full}
 bind left:ctrl;alt;cmd ${lefthalf}
 bind right:ctrl;alt;cmd ${righthalf}
 bind 1:ctrl;alt;cmd ${topleft} 
@@ -64,6 +63,7 @@ bind 2:ctrl;alt;cmd ${topright}
 bind 3:ctrl;alt;cmd ${bottomleft} 
 bind 4:ctrl;alt;cmd ${bottomright} 
 
+bind up:ctrl;alt;cmd hide 'Google Chrome'
 bind j:ctrl;alt;cmd sequence focus 'Google Chrome' | ${lefthalf}
 bind l:ctrl;alt;cmd sequence focus 'Google Chrome' | ${righthalf}
 
