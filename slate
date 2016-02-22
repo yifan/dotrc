@@ -40,6 +40,7 @@ layout 2monitor 'Atom':REPEAT ${hp-right}
 layout 2monitor 'Evernote':REPEAT ${laptop-full}
 layout 2monitor 'Slack':REPEAT ${laptop-full}
 layout 2monitor '邮件':REPEAT ${laptop-full}
+layout 2monitor 'Microsoft Outlook':REPEAT ${laptop-full}
 layout 2monitor 'QQ音乐':REPEAT ${laptop-full}
 
 # Single monitor window layouts
@@ -58,6 +59,7 @@ bind ]:ctrl;alt;cmd activate-snapshot 'slate-snapshot'
 bind up:ctrl;alt;cmd ${bigCenter}
 bind left:ctrl;alt;cmd ${lefthalf}
 bind right:ctrl;alt;cmd ${righthalf}
+bind 0:ctrl;alt;cmd layout 2monitor 
 bind 1:ctrl;alt;cmd ${topleft} 
 bind 2:ctrl;alt;cmd ${topright} 
 bind 3:ctrl;alt;cmd ${bottomleft} 
@@ -66,6 +68,9 @@ bind 4:ctrl;alt;cmd ${bottomright}
 bind i:ctrl;alt;cmd hide 'Google Chrome'
 bind j:ctrl;alt;cmd sequence focus 'Google Chrome' | ${lefthalf}
 bind l:ctrl;alt;cmd sequence focus 'Google Chrome' | ${righthalf}
+
+bind ,:ctrl;alt;cmd focus left
+bind .:ctrl;alt;cmd focus right
 
 # Auto-detect when a monitor is plugged in or out
 default 2monitor count:2
@@ -77,8 +82,10 @@ default 1monitor count:1
 
 alias hyper ctrl;shift;alt;cmd
 
-# Focus Bindings
-bind right:${hyper}    focus right
-bind left:${hyper}     focus left
-bind up:${hyper}       focus up
-bind down:${hyper}     focus down
+
+############ Resize Bindings ##########################
+bind right:${hyper}       resize +10% +0
+bind left:${hyper}        resize -10% +0
+bind up:${hyper}          resize +0   -10%
+bind down:${hyper}        resize +0   +10%
+#######################################################
