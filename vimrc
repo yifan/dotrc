@@ -49,6 +49,9 @@ set statusline+=\ [%{&ff}/%Y]            " filetype
 set statusline+=\ [%{getcwd()}]          " current dir
 set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
 
+" try ESCAPE again
+inoremap jk <ESC>
+
 silent! if emoji#available()
   let s:ft_emoji = map({
       \ 'c':          'baby_chick',
@@ -148,7 +151,7 @@ set showmatch
 set wildmenu
 set foldenable
 
-set nohlsearch
+set hlsearch
 set incsearch
 set ignorecase
 set ruler
