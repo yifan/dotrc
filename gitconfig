@@ -8,7 +8,7 @@
   excludesfile = ~/.gitignore
 
 [color]
-  ui = true
+	ui = true
 
 [color "branch"]
   current = yellow reverse
@@ -44,3 +44,9 @@
   uu = pull --rebase upstream master
   subup = submodule update --init
   ll = log --oneline --decorate=full --date=relative --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[format]
+	pretty = oneline
