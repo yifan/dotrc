@@ -24,6 +24,13 @@ Plugin 'airblade/vim-gitgutter'
 
 Plugin 'junegunn/rainbow_parentheses.vim'
 
+Plugin 'easymotion/vim-easymotion'
+
+Plugin 'helino/vim-json'
+
+Plugin 'pangloss/vim-javascript'
+Plugin 'nathanaelkane/vim-indent-guides'
+
 set completefunc=emoji#complete
 " In .vimrc
 silent! if emoji#available()
