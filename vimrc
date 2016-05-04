@@ -13,12 +13,14 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'terryma/vim-multiple-cursors'
 
-Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 
 Plugin 'bronson/vim-trailing-whitespace'
 
 Plugin 'junegunn/vim-emoji'
+Plugin 'bling/vim-airline'
+
+Plugin 'scrooloose/nerdtree'
 
 Plugin 'airblade/vim-gitgutter'
 
