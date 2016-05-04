@@ -6,14 +6,16 @@ config windowHintsSpread true
 
 bind e:cmd hint ASDFGHJKLQWERTYUIOPCVBN # use whatever keys you want
 
-alias mon-laptop    0    # variable for my laptop monitor
-alias mon-hp        1    # my external HP monitor
+alias mon-laptop    1    # variable for my laptop monitor
+alias mon-hp        0    # my external HP monitor
 
 # Window Position Regions
 alias hp-full        move screenOriginX;screenOriginY screenSizeX;screenSizeY         ${mon-hp}
 alias hp-left        move screenOriginX;screenOriginY screenSizeX/2;screenSizeY         ${mon-hp}
 alias hp-right       move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY         ${mon-hp}
 alias laptop-full        move screenOriginX;screenOriginY screenSizeX;screenSizeY         ${mon-laptop}
+# 200px wide space on right size of the screen is for widgets
+alias laptop-normal      move screenOriginX;screenOriginY screenSizeX-200;screenSizeY     ${mon-laptop}
 alias laptop-left        move screenOriginX;screenOriginY screenSizeX/2;screenSizeY         ${mon-laptop}
 alias laptop-right       move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY         ${mon-laptop}
 alias laptop-righttop    move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY/2       ${mon-laptop}
@@ -37,11 +39,11 @@ layout 2monitor 'Safari':REPEAT ${hp-left}
 layout 2monitor 'iTerm':REPEAT ${hp-left}
 layout 2monitor 'MacVim':REPEAT ${hp-right}
 layout 2monitor 'Atom':REPEAT ${hp-right}
-layout 2monitor 'Evernote':REPEAT ${laptop-full}
-layout 2monitor 'Slack':REPEAT ${laptop-full}
-layout 2monitor '邮件':REPEAT ${laptop-full}
-layout 2monitor 'Microsoft Outlook':REPEAT ${laptop-full}
-layout 2monitor 'QQ音乐':REPEAT ${laptop-full}
+layout 2monitor 'Evernote':REPEAT ${laptop-normal}
+layout 2monitor 'Slack':REPEAT ${laptop-normal}
+layout 2monitor '邮件':REPEAT ${laptop-normal}
+layout 2monitor 'Microsoft Outlook':REPEAT ${laptop-normal}
+layout 2monitor 'QQ音乐':REPEAT ${laptop-normal}
 
 # Single monitor window layouts
 layout 1monitor 'Google Chrome':REPEAT ${laptop-full}
