@@ -10,6 +10,10 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 
+Plugin 'kristijanhusak/vim-hybrid-material'
+
+Plugin 'vim-scripts/a.vim'
+
 Plugin 'tpope/vim-fugitive'
 Plugin 'terryma/vim-multiple-cursors'
 
@@ -33,6 +37,8 @@ Plugin 'helino/vim-json'
 Plugin 'pangloss/vim-javascript'
 Plugin 'nathanaelkane/vim-indent-guides'
 
+call vundle#end()
+
 set completefunc=emoji#complete
 " In .vimrc
 silent! if emoji#available()
@@ -44,7 +50,7 @@ endif
 
 set t_Co=256
 syntax enable
-colorscheme distinguished
+colorscheme hybrid_material
 set background=dark
 set spell
 set number
