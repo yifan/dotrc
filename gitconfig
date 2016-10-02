@@ -1,7 +1,6 @@
 [user]
   name = Yifan Zhang
   email = freqyifan@gmail.com
-  j
 [core]
   editor = vim
   whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
@@ -45,7 +44,8 @@
   subup = submodule update --init
   ll = log --oneline --decorate=full --date=relative --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
   l = log --oneline --graph
-  s = status -s
+  s = status -s -uno
+  st = status --short --branch
 
 [filter "lfs"]
 	clean = git-lfs clean %f
@@ -53,3 +53,5 @@
 	required = true
 [format]
 	pretty = oneline
+[push]
+	default = matching
