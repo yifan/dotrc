@@ -10,6 +10,8 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 
+Plugin 'tomtom/tcomment_vim'
+
 Plugin 'kristijanhusak/vim-hybrid-material'
 
 Plugin 'vim-scripts/a.vim'
@@ -25,6 +27,7 @@ Plugin 'junegunn/vim-emoji'
 Plugin 'bling/vim-airline'
 
 Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
 
 Plugin 'airblade/vim-gitgutter'
 
