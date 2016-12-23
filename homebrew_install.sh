@@ -18,6 +18,9 @@ brew cask install steam
 brew cask install sequel-pro
 brew cask install cheatsheet
 brew cask install appcleaner
+brew cask install ungoogled-chrome
+brew install TomAnthony/brews/itermocil
+
 
 #dotrc
 
