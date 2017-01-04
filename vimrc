@@ -40,6 +40,8 @@ Plugin 'helino/vim-json'
 Plugin 'pangloss/vim-javascript'
 Plugin 'nathanaelkane/vim-indent-guides'
 
+Plugin 'flazz/vim-colorschemes'
+
 call vundle#end()
 
 set completefunc=emoji#complete
