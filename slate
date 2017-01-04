@@ -6,13 +6,22 @@ config windowHintsSpread true
 
 bind e:cmd hint ASDFGHJKLQWERTYUIOPCVBN # use whatever keys you want
 
-alias mon-laptop    1    # variable for my laptop monitor
-alias mon-hp        0    # my external HP monitor
+alias mon-hp        2560x1600    # my external HP monitor
+alias mon-apple     2560x1440
+alias mon-laptop    1440x900     # variable for my laptop monitor
 
 # Window Position Regions
 alias hp-full        move screenOriginX;screenOriginY screenSizeX;screenSizeY         ${mon-hp}
 alias hp-left        move screenOriginX;screenOriginY screenSizeX/2;screenSizeY         ${mon-hp}
+alias hp-left20      move screenOriginX;screenOriginY screenSizeX/5;screenSizeY         ${mon-hp}
 alias hp-right       move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY         ${mon-hp}
+alias hp-right80     move screenOriginX+screenSizeX/5;screenOriginY screenSizeX*4/5;screenSizeY         ${mon-hp}
+
+alias apple-full        move screenOriginX;screenOriginY screenSizeX;screenSizeY         ${mon-apple}
+alias apple-left        move screenOriginX;screenOriginY screenSizeX/2;screenSizeY         ${mon-apple}
+alias apple-left60      move screenOriginX;screenOriginY screenSizeX*6/10;screenSizeY         ${mon-apple}
+alias apple-right40     move screenOriginX+screenSizeX*6/10;screenOriginY screenSizeX*4/10;screenSizeY         ${mon-apple}
+
 alias laptop-full        move screenOriginX;screenOriginY screenSizeX;screenSizeY         ${mon-laptop}
 # 200px wide space on right size of the screen is for widgets
 alias laptop-normal      move screenOriginX;screenOriginY screenSizeX-200;screenSizeY     ${mon-laptop}
@@ -33,10 +42,25 @@ alias topright corner top-right resize:screenSizeX/2;screenSizeY/2
 alias bottomleft corner bottom-left resize:screenSizeX/2;screenSizeY/2
 alias bottomright corner bottom-right resize:screenSizeX/2;screenSizeY/2
 
+# Window layouts for when I have 3 monitors
+layout 3monitor '奇妙清单':REPEAT ${hp-left20}
+layout 3monitor 'Chromium':REPEAT ${hp-left}
+layout 3monitor 'iTerm2':REPEAT ${hp-right80}
+layout 3monitor 'MacVim':REPEAT ${hp-right80}
+
+layout 3monitor 'Google Chrome':REPEAT,TITLE_ORDER_REGEX=Developer ${apple-right40} | ${apple-left60}
+
+layout 3monitor 'Evernote':REPEAT ${laptop-normal}
+layout 3monitor 'Slack':REPEAT ${laptop-normal}
+layout 3monitor '邮件':REPEAT ${laptop-normal}
+layout 3monitor 'Microsoft Outlook':REPEAT ${laptop-normal}
+layout 3monitor 'QQ音乐':REPEAT ${laptop-normal}
+layout 3monitor '1Password 6':REPEAT ${laptop-normal}
+
 # Window layouts for when I have 2 monitors
 layout 2monitor 'Google Chrome':REPEAT ${hp-left}
 layout 2monitor 'Safari':REPEAT ${hp-left}
-layout 2monitor 'iTerm':REPEAT ${hp-left}
+layout 2monitor 'iTerm2':REPEAT ${hp-left}
 layout 2monitor 'MacVim':REPEAT ${hp-right}
 layout 2monitor 'Atom':REPEAT ${hp-right}
 layout 2monitor 'Evernote':REPEAT ${laptop-normal}
@@ -48,7 +72,7 @@ layout 2monitor 'QQ音乐':REPEAT ${laptop-normal}
 # Single monitor window layouts
 layout 1monitor 'Google Chrome':REPEAT ${laptop-full}
 layout 1monitor 'Safari':REPEAT ${laptop-full}
-layout 1monitor 'iTerm':REPEAT ${laptop-full}
+layout 1monitor 'iTerm2':REPEAT ${laptop-full}
 layout 1monitor 'Spotify':REPEAT ${laptop-full}
 layout 1monitor 'Evernote':REPEAT ${laptop-full}
 layout 1monitor '邮件':REPEAT ${laptop-full}
@@ -61,7 +85,7 @@ bind ]:ctrl;alt;cmd activate-snapshot 'slate-snapshot'
 bind up:ctrl;alt;cmd ${bigCenter}
 bind left:ctrl;alt;cmd ${lefthalf}
 bind right:ctrl;alt;cmd ${righthalf}
-bind 0:ctrl;alt;cmd layout 2monitor 
+bind 0:ctrl;alt;cmd layout 3monitor 
 bind 1:ctrl;alt;cmd ${topleft} 
 bind 2:ctrl;alt;cmd ${topright} 
 bind 3:ctrl;alt;cmd ${bottomleft} 
@@ -75,7 +99,8 @@ bind ,:ctrl;alt;cmd focus left
 bind .:ctrl;alt;cmd focus right
 
 # Auto-detect when a monitor is plugged in or out
-default 2monitor count:2
+default 3monitor count:3
+default 2monitor resolutions:2560x1440;2560x1600
 default 1monitor count:1
 
 # ======================================
