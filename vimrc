@@ -37,7 +37,9 @@ Plugin 'easymotion/vim-easymotion'
 
 Plugin 'helino/vim-json'
 
-Plugin 'pangloss/vim-javascript'
+"Plugin 'pangloss/vim-javascript'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'mxw/vim-jsx'
 Plugin 'nathanaelkane/vim-indent-guides'
 
 Plugin 'flazz/vim-colorschemes'
@@ -164,6 +166,10 @@ silent! if emoji#available()
   " context of the window that the statusline belongs to.
   set statusline=%!MyStatusLine()
 endif
+
+" Open NERDTree when open vim with directory
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
 set backspace=indent,eol,start
 set linespace=0
