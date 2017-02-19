@@ -83,6 +83,7 @@ layout 1monitor 'Slack':REPEAT ${laptop-full}
 bind [:ctrl;alt;cmd snapshot 'slate-snapshot' save-to-disk
 bind ]:ctrl;alt;cmd activate-snapshot 'slate-snapshot'
 bind up:ctrl;alt;cmd ${bigCenter}
+bind down:ctrl;alt;cmd ${full}
 bind left:ctrl;alt;cmd ${lefthalf}
 bind right:ctrl;alt;cmd ${righthalf}
 bind 0:ctrl;alt;cmd layout 3monitor 
