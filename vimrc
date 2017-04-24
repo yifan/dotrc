@@ -44,6 +44,8 @@ Plugin 'nathanaelkane/vim-indent-guides'
 
 Plugin 'flazz/vim-colorschemes'
 
+Plugin 'christoomey/vim-tmux-navigator'
+
 call vundle#end()
 
 set completefunc=emoji#complete
@@ -61,7 +63,7 @@ colorscheme hybrid_material
 set background=dark
 set spell
 set number
-set guifont=Source\ Code\ Pro\ Light:h14
+set guifont=Iosevka\ Light:h14
 
 set laststatus=2
 set statusline=%<%f\    " Filename
@@ -188,3 +190,11 @@ set shiftwidth=2
 set expandtab
 set smarttab
 set nowrap
+
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+set splitbelow
+set splitright
