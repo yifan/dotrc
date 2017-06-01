@@ -182,6 +182,7 @@ set foldenable
 set hlsearch
 set incsearch
 set ignorecase
+set infercase
 set ruler
 set autoindent
 set tabstop=2
