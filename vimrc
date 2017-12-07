@@ -27,6 +27,9 @@ Plugin 'junegunn/vim-emoji'
 Plugin 'bling/vim-airline'
 
 Plugin 'scrooloose/nerdtree'
+map <D-\> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
 Plugin 'scrooloose/nerdcommenter'
 
 Plugin 'airblade/vim-gitgutter'
