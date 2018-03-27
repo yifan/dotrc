@@ -13,6 +13,7 @@ brew cask install anvil
 brew cask install google-chrome
 brew cask install afred
 brew cask install macvim
+brew cask install mattr-slate
 brew cask install sidestep
 brew cask install iterm2
 brew cask install vagrant virtualbox
