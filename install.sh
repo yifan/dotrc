@@ -6,3 +6,4 @@ test -e ~/.vimrc || ln -s ~/dotrc/vimrc ~/.vimrc
 test -e ~/.gitconfig || ln -s ~/dotrc/gitconfig ~/.gitconfig
 test -e ~/.slate || ln -s ~/dotrc/slate ~/.slate
 test -e ~/.bash_profile || ln -s ~/dotrc/bash_profile ~/.bash_profile
+test -e ~/.aliases || ln -s ~/dotrc/aliases ~/.aliases
