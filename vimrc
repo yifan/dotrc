@@ -62,11 +62,11 @@ endif
 
 set t_Co=256
 syntax enable
-colorscheme hybrid_material
+colorscheme wombat256mod
 set background=dark
 set spell
 set number
-set guifont=Iosevka\ Light:h14
+set guifont=Source\ Code\ Pro\ Light:h16
 
 set laststatus=2
 set statusline=%<%f\    " Filename
@@ -194,6 +194,7 @@ set shiftwidth=2
 set expandtab
 set smarttab
 set nowrap
+set linespace=5
 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
