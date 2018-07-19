@@ -7,6 +7,7 @@ brew install caskroom/cask/brew-cask
 brew install ack autojump colordiff curl git openssl tmux wget
 
 brew install pipenv
+brew install legit
 
 brew cask install atom
 brew cask install anvil
