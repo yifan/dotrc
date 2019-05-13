@@ -2,30 +2,25 @@
 
 ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 
-brew install caskroom/cask/brew-cask
 
-brew install ack autojump colordiff curl git openssl tmux wget
+brew install ack autojump colordiff curl git openssl tmux wget git-extras
 
-brew install pipenv
-brew install legit
-
-brew cask install atom
-brew cask install anvil
 brew cask install google-chrome
-brew cask install afred
+brew cask install alfred
 brew cask install macvim
 brew cask install mattr-slate
 brew cask install sidestep
 brew cask install iterm2
-brew cask install vagrant virtualbox
-brew cask install steam
+#brew cask install vagrant virtualbox
+#brew cask install steam
 brew cask install sequel-pro
-brew cask install cheatsheet
-brew cask install appcleaner
-brew cask install ungoogled-chrome
-brew install TomAnthony/brews/itermocil
+#brew cask install cheatsheet
+#brew cask install appcleaner
+#brew cask install ungoogled-chrome
+#brew install TomAnthony/brews/itermocil
+brew install neovim
 
 
 #dotrc
 
-sudo scutil --set HostName yifan-rmbp
+sudo scutil --set HostName MagicalStaff
