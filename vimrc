@@ -38,16 +38,19 @@ Plugin 'junegunn/rainbow_parentheses.vim'
 
 Plugin 'easymotion/vim-easymotion'
 
-Plugin 'helino/vim-json'
+"Plugin 'helino/vim-json'
 
+Plugin 'flazz/vim-colorschemes'
 "Plugin 'pangloss/vim-javascript'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'mxw/vim-jsx'
 Plugin 'nathanaelkane/vim-indent-guides'
 
-Plugin 'flazz/vim-colorschemes'
+"Plugin 'gryf/wombat256grf'
 
 Plugin 'christoomey/vim-tmux-navigator'
+
+Plugin 'fisadev/vim-isort'
 
 call vundle#end()
 
@@ -62,11 +65,11 @@ endif
 
 set t_Co=256
 syntax enable
-colorscheme wombat256mod
+colorscheme seoul256
 set background=dark
 set spell
 set number
-set guifont=Source\ Code\ Pro\ Light:h16
+set guifont=Anonymous\ Pro:h18
 
 set laststatus=2
 set statusline=%<%f\    " Filename
@@ -188,9 +191,9 @@ set ignorecase
 set infercase
 set ruler
 set autoindent
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 set expandtab
 set smarttab
 set nowrap
@@ -203,3 +206,28 @@ nnoremap <C-H> <C-W><C-H>
 
 set splitbelow
 set splitright
+
+filetype on
+filetype plugin on
+filetype indent on
+
+au BufNewFile, BufRead *.py
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=79
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
+
+au BufNewFile, BufRead *.js, *.html, *.css, *.scss, *.jsx
+    \ set tabstop=2
+    \ set softtabstop=2
+    \ set shiftwidth=2
+
+"au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
+au BufNewFile, BufRead Makefile
+    \ set noexpandtab
+    \ set softtabstop=0
+    \ set shiftwidth=4

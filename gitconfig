@@ -47,6 +47,7 @@
   s = status -s -uno
   st = status --short --branch
   undo = reset --soft HEAD^
+	pusht = push --tags origin HEAD
 
 [filter "lfs"]
 	required = true
@@ -69,5 +70,3 @@
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
-[commit]
-	template = /Users/yifan/.stCommitMsg
