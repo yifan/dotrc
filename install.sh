@@ -7,3 +7,7 @@ test -e ~/.slate || ln -s ~/dotrc/slate ~/.slate
 test -e ~/.bash_profile || ln -s ~/dotrc/bash_profile ~/.bash_profile
 test -e ~/.aliases || ln -s ~/dotrc/aliases ~/.aliases
 test -e ~/.gitignore || ln -s ~/dotrc/gitignore ~/.gitignore
+
+# setting up vim
+git clone https://github.com/VundleVim/Vundle.vim.git /.vim/bundle/vundle.vim
+vim +BundleInstall +qall
