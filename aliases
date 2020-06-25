@@ -4,15 +4,13 @@ alias ....="cd ../../.."
 alias g="grep"
 alias gc="grep --color"
 alias lh="ls -lh"
-alias prp="pipenv run python"
 
 alias brewupdate="brew update && brew upgrade && brew cleanup && brew doctor"
-
-alias socks5="ssh -D 0.0.0.0:1080 -q -f -N qats-demo"
-alias cn="ssh -D 1080 -q -f -N azureuser@13.75.42.19"
 
 alias logsf='kubectl logs -f -n'
 alias apply='kubectl apply -n'
 alias delete='kubectl delete -n'
 alias describe='kubectl describe -n'
 alias getpo='kubectl get po -n'
+
+alias lc='colorls -lA --sd'

@@ -19,6 +19,7 @@ brew cask install sequel-pro
 #brew cask install ungoogled-chrome
 #brew install TomAnthony/brews/itermocil
 brew install neovim
+brew cask install font-fontawesome font-awesome-terminal-fonts
 
 
 #dotrc
