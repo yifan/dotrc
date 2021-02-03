@@ -8,6 +8,8 @@ test -e ~/.bash_profile || ln -s ~/dotrc/bash_profile ~/.bash_profile
 test -e ~/.aliases || ln -s ~/dotrc/aliases ~/.aliases
 test -e ~/.gitignore || ln -s ~/dotrc/gitignore ~/.gitignore
 
-# setting up vim
-git clone https://github.com/VundleVim/Vundle.vim.git /.vim/bundle/vundle.vim
-vim +BundleInstall +qall
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+vim +PlugInstall +qall
+
+brew tap homebrew/cask-fonts

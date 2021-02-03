@@ -1,58 +1,89 @@
 set nocompatible
-filetype off
 
 if exists('$TMUX')
   set term=screen-256color
 endif
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-Plugin 'gmarik/Vundle.vim'
+Plug 'tpope/vim-repeat'
+Plug 'tomtom/tcomment_vim'
+Plug 'tpope/vim-surround'
+Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'vim-scripts/a.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'Xuyuanp/nerdtree-git-Plugin'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'machakann/vim-sandwich'
+Plug 'junegunn/vim-emoji'
+Plug 'bling/vim-airline'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+Plug 'airblade/vim-gitgutter'
+Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'easymotion/vim-easymotion'
+Plug 'jacoborus/tender.vim'
+Plug 'flazz/vim-colorschemes'
+"Plug 'pangloss/vim-javascript'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'mxw/vim-jsx'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'gryf/wombat256grf'
+Plug 'vim-syntastic/syntastic'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'jdhao/better-escape.vim'
+Plug 'SirVer/ultisnips'
 
-Plugin 'tomtom/tcomment_vim'
+call plug#end()
 
-Plugin 'kristijanhusak/vim-hybrid-material'
+" set time interval to 200 ms
+let g:better_escape_interval = 200
+let g:better_escape_shortcut = ['jk', 'kj']
 
-Plugin 'vim-scripts/a.vim'
-
-Plugin 'tpope/vim-fugitive'
-Plugin 'terryma/vim-multiple-cursors'
-
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-
-Plugin 'bronson/vim-trailing-whitespace'
-
-Plugin 'junegunn/vim-emoji'
-Plugin 'bling/vim-airline'
-
-Plugin 'scrooloose/nerdtree'
 map <D-\> :NERDTreeToggle<CR>
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let NERDTreeShowHidden=1
 
-Plugin 'scrooloose/nerdcommenter'
+" This is the default extra key bindings
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
 
-Plugin 'airblade/vim-gitgutter'
 
-Plugin 'junegunn/rainbow_parentheses.vim'
+map <leader>f :GFiles<CR>
+map <leader>b :Buffers<CR>
+nnoremap <leader>g :Rg<CR>
+nnoremap <leader>t :Tags<CR>
+nnoremap <leader>m :Marks<CR>
 
-Plugin 'easymotion/vim-easymotion'
+" Border color
+let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'highlight': 'Todo', 'border': 'sharp' } }
 
-"Plugin 'helino/vim-json'
+let $FZF_DEFAULT_OPTS = '--layout=reverse --info=inline'
+let $FZF_DEFAULT_COMMAND="rg --files --hidden"
 
-Plugin 'flazz/vim-colorschemes'
-"Plugin 'pangloss/vim-javascript'
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'mxw/vim-jsx'
-Plugin 'nathanaelkane/vim-indent-guides'
+" Customize fzf colors to match your color scheme
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
 
-"Plugin 'gryf/wombat256grf'
-
-Plugin 'christoomey/vim-tmux-navigator'
-
-Plugin 'fisadev/vim-isort'
-
-call vundle#end()
+"Get Files
+command! -bang -nargs=? -complete=dir Files
+    \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline']}), <bang>0)
 
 set completefunc=emoji#complete
 " In .vimrc
@@ -62,25 +93,6 @@ silent! if emoji#available()
   let g:gitgutter_sign_removed = emoji#for('small_red_triangle')
   let g:gitgutter_sign_modified_removed = emoji#for('collision')
 endif
-
-set t_Co=256
-syntax enable
-colorscheme seoul256
-set background=dark
-set spell
-set number
-set guifont=Anonymous\ Pro:h18
-
-set laststatus=2
-set statusline=%<%f\    " Filename
-set statusline+=%w%h%m%r " Options
-"set statusline+=%{fugitive#statusline()} "  Git Hotness
-set statusline+=\ [%{&ff}/%Y]            " filetype
-set statusline+=\ [%{getcwd()}]          " current dir
-set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
-
-" try ESCAPE again
-inoremap jk <ESC>
 
 silent! if emoji#available()
   let s:ft_emoji = map({
@@ -179,6 +191,27 @@ endif
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
+" set airline theme
+let g:airline_theme = 'tender'
+
+set t_Co=256
+syntax enable
+colorscheme tender
+set background=dark
+set spell
+set number
+"set relativenumber
+set ruler
+set guifont=Source\ Code\ Pro\ Light:h18
+
+set laststatus=2
+set statusline=%<%f\    " Filename
+set statusline+=%w%h%m%r " Options
+"set statusline+=%{fugitive#statusline()} "  Git Hotness
+set statusline+=\ [%{&ff}/%Y]            " filetype
+set statusline+=\ [%{getcwd()}]          " current dir
+set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
+
 set backspace=indent,eol,start
 set linespace=0
 set showmatch
@@ -199,12 +232,34 @@ set smarttab
 set nowrap
 set linespace=5
 
+let mapleader=","
+
+nnoremap ; :
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-set splitbelow
+map <space> /
+map <C-space> ?
+
+map <leader>tn :tabnew<cr>
+"map <leader>to :tabonly<cr>
+"map <leader>tc :tabclose<cr>
+"map <leader>tm :tabmove 
+
+" Opens a new tab with the current buffer's path
+" Super useful when editing files in the same directory
+map <leader>te :tabedit <C-r>=expand("%:p:h")<cr>/
+
+map <leader>nn :NERDTreeToggle<cr>
+map <leader>nb :NERDTreeFromBookmark
+map <leader>nf :NERDTreeFind<cr>
+
+map <leader>o :BufExplorer<cr>
+
+
+"set splitbelow
 set splitright
 
 filetype on
@@ -231,3 +286,26 @@ au BufNewFile, BufRead Makefile
     \ set noexpandtab
     \ set softtabstop=0
     \ set shiftwidth=4
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let macvim_skip_colorscheme=1
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
+" - https://github.com/Valloric/YouCompleteMe
+" - https://github.com/nvim-lua/completion-nvim
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
+let g:UltiSnipsSnippetDirectories=["code"]

@@ -2,15 +2,20 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias g="grep"
-alias gc="grep --color"
+alias k="kubectl"
 alias lh="ls -lh"
 
-alias brewupdate="brew update && brew upgrade && brew cleanup && brew doctor"
+alias brewupdate="brew update && brew cleanup && brew doctor"
+alias brewupgrade="brew update && brew upgrade && brew cleanup && brew doctor"
 
 alias logsf='kubectl logs -f -n'
 alias apply='kubectl apply -n'
 alias delete='kubectl delete -n'
 alias describe='kubectl describe -n'
 alias getpo='kubectl get po -n'
+alias getsvc='kubectl get svc -n'
 
 alias lc='colorls -lA --sd'
+
+alias ga='git add'
+alias gc='git commit'

@@ -10,6 +10,21 @@ if [ -f ~/.aliases ]; then
   . ~/.aliases
 fi
 
+function _update_ps1() {
+    PS1="$($GOPATH/bin/powerline-go -error $? -jobs $(jobs -p | wc -l))"
+
+    # Uncomment the following line to automatically clear errors after showing
+    # them once. This not only clears the error for powerline-go, but also for
+    # everything else you run in that shell. Don't enable this if you're not
+    # sure this is what you want.
+    
+    #set "?"
+}
+
+if [ "$TERM" != "linux" ] && [ -f "$GOPATH/bin/powerline-go" ]; then
+    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+fi
+
 # tmux start
 function tmuxdev {
   SESSION="dev"
@@ -63,3 +78,12 @@ function dockerpush {
   docker push meganews.azurecr.io/meganews/$NAME
 }
 
+source $(dirname $(gem which colorls))/tab_complete.sh
+
+export PATH=$HOME/.poetry/bin:$(pyenv root)/shims:$PATH
+export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/opt/openssl/lib/
+export PATH="/usr/local/sbin:$PATH"
+export PATH="${PATH}:${HOME}/.krew/bin"
+
+# Created by `userpath` on 2021-01-28 07:23:59
+export PATH="$PATH:/Users/yifan/.local/bin"
