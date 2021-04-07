@@ -80,10 +80,13 @@ function dockerpush {
 
 source $(dirname $(gem which colorls))/tab_complete.sh
 
-export PATH=$HOME/.poetry/bin:$(pyenv root)/shims:$PATH
 export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/opt/openssl/lib/
 export PATH="/usr/local/sbin:$PATH"
 export PATH="${PATH}:${HOME}/.krew/bin"
+export PATH=$HOME/.poetry/bin:$(pyenv root)/shims:$PATH
 
 # Created by `userpath` on 2021-01-28 07:23:59
 export PATH="$PATH:/Users/yifan/.local/bin"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi

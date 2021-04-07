@@ -11,6 +11,7 @@ Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-surround'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'vim-scripts/a.vim'
+Plug 'vim-scripts/keepcase.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'Xuyuanp/nerdtree-git-Plugin'
@@ -23,18 +24,20 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'easymotion/vim-easymotion'
-Plug 'jacoborus/tender.vim'
-Plug 'flazz/vim-colorschemes'
 "Plug 'pangloss/vim-javascript'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'mxw/vim-jsx'
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'gryf/wombat256grf'
-Plug 'vim-syntastic/syntastic'
+"Plug 'vim-syntastic/syntastic'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'jdhao/better-escape.vim'
 Plug 'SirVer/ultisnips'
+"Plug 'flazz/vim-colorschemes'
+Plug 'sonph/onehalf', { 'rtp': 'vim' }
+Plug 'NLKNguyen/papercolor-theme'
+"Plug 'jacoborus/tender.vim'
+"Plug 'gryf/wombat256grf'
 
 call plug#end()
 
@@ -192,17 +195,18 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
 " set airline theme
-let g:airline_theme = 'tender'
+let g:airline_theme='onehalfdark'
 
-set t_Co=256
 syntax enable
-colorscheme tender
-set background=dark
+set t_Co=256
+set cursorline
+colorscheme onehalflight
+set background=light
 set spell
 set number
 "set relativenumber
 set ruler
-set guifont=Source\ Code\ Pro\ Light:h18
+set guifont=Iosevka\ Light:h20
 
 set laststatus=2
 set statusline=%<%f\    " Filename
