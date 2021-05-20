@@ -33,6 +33,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'jdhao/better-escape.vim'
 Plug 'SirVer/ultisnips'
+Plug 'arcticicestudio/nord-vim'
 "Plug 'flazz/vim-colorschemes'
 Plug 'sonph/onehalf', { 'rtp': 'vim' }
 Plug 'NLKNguyen/papercolor-theme'
@@ -200,13 +201,13 @@ let g:airline_theme='onehalfdark'
 syntax enable
 set t_Co=256
 set cursorline
-colorscheme onehalflight
-set background=light
+colorscheme nord
+set background=dark
 set spell
 set number
 "set relativenumber
 set ruler
-set guifont=Iosevka\ Light:h20
+set guifont=Iosevka\ ExtraLight:h20
 
 set laststatus=2
 set statusline=%<%f\    " Filename
