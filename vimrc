@@ -207,7 +207,7 @@ set spell
 set number
 "set relativenumber
 set ruler
-set guifont=Iosevka\ ExtraLight:h20
+set guifont=Iosevka\ ExtraLight:h18
 
 set laststatus=2
 set statusline=%<%f\    " Filename
