@@ -1,10 +1,15 @@
 #!/bin/bash
 
-ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+which brew
+if [[ $? == 1 ]]; then
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
 
+brew install ack autojump colordiff curl git openssl tmux wget git-extras svn
 
-brew install ack autojump colordiff curl git openssl tmux wget git-extras
-brew install --cask font-fontawesome font-awesome-terminal-fonts font-iosevka
+brew tap homebrew/cask-fonts
+brew install font-fontawesome font-awesome-terminal-fonts font-iosevka
+brew install font-source-code-pro font-source-code-pro-for-powerline
 
 #brew cask install google-chrome
 brew install --cask visual-studio-code microsoft-edge
@@ -26,4 +31,4 @@ brew install ripgrep tree bat httpie glab
 
 #dotrc
 
-sudo scutil --set HostName MagicalStaff
+brew install notion

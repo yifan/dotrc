@@ -32,7 +32,7 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'jdhao/better-escape.vim'
-Plug 'SirVer/ultisnips'
+"Plug 'SirVer/ultisnips'
 Plug 'arcticicestudio/nord-vim'
 "Plug 'flazz/vim-colorschemes'
 Plug 'sonph/onehalf', { 'rtp': 'vim' }
