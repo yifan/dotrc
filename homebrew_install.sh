@@ -27,6 +27,9 @@ brew install --cask macvim iterm2 rectangle
 #brew install tldr
 brew install ripgrep tree bat httpie glab
 #brew install lazydocker
+# install GitHub CLI
+brew install gh
+brew install fasd
 
 
 #dotrc
