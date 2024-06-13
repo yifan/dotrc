@@ -30,6 +30,9 @@ brew install ripgrep tree bat httpie glab
 # install GitHub CLI
 brew install gh
 brew install fasd
+brew install jq yq
+brew tap saulpw/vd
+brew install visidata
 
 
 #dotrc

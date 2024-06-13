@@ -1,0 +1,10 @@
+brew install font-fira-code-nerd-font
+brew install font-fira-mono-nerd-font
+brew install font-freefont
+brew install font-hack-nerd-font
+brew install font-iosevka
+brew install font-iosevka-nerd-font
+brew install font-iosevka-term-nerd-font
+brew install font-iosevka-term-slab-nerd-font
+brew install font-source-code-pro
+brew install font-source-code-pro-for-powerline

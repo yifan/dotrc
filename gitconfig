@@ -1,6 +1,6 @@
 [user]
 	name = Yifan Zhang
-	email = freqyifan@gmail.com
+	email = yifan2019@icloud.com
 [core]
   editor = vim
   whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
@@ -50,29 +50,42 @@
   s = status -s -uno
   st = status --short --branch
   undo = reset --soft HEAD^
-	pusht = push --tags origin HEAD
+  pusht = push --tags origin HEAD
+  publish = push origin HEAD --force-with-lease
+  pub = publish
+  squash = "!git rebase -v -i $(git mainbranch)"
+  amend = git ci --amend
+  gdc = git diff --cached
 
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
+
 [format]
 	pretty = oneline
+
 [push]
 	default = matching
+
 [merge]
   ff = only
+
 [difftool]
   prompt = false
+
 [difftool "icdiff"]
   cmd = /usr/local/bin/icdiff --line-numbers $LOCAL $REMOTE
+
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
+
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+
 [color "diff-highlight"]
 	oldNormal = red bold
 	oldHighlight = red bold 52

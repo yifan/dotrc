@@ -110,13 +110,14 @@ alias zz='fasd_cd -d -i' # cd with interactive selection
 alias v='fasd -f -e vim' # quick opening files with vim
 alias m='fasd -f -e mvim' # quick opening files with vim
 
-# To avoid them accidentally linking against a Pyenv-provided Python
-alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
-
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+bindkey "^[[1;3C" forward-word
+bindkey "^[[1;3D" backward-word
 
 export PATH="$PATH:$HOME/.kubectl-plugins"
 
+export CPATH=/opt/homebrew/include
+export LIBRARY_PATH=/opt/homebrew/lib
+
 setopt IGNORE_EOF
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

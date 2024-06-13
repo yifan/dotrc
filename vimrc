@@ -24,11 +24,9 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'easymotion/vim-easymotion'
-"Plug 'pangloss/vim-javascript'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'mxw/vim-jsx'
 Plug 'nathanaelkane/vim-indent-guides'
-"Plug 'vim-syntastic/syntastic'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'jdhao/better-escape.vim'
@@ -225,8 +223,6 @@ set foldenable
 
 set hlsearch
 set incsearch
-set ignorecase
-set infercase
 set ruler
 set autoindent
 set tabstop=4
@@ -314,3 +310,5 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
 
 let g:UltiSnipsSnippetDirectories=["code"]
+
+let g:indent_guides_enable_on_vim_startup = 1
